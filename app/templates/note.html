@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заметки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87ceeb; /* Голубой фон */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center; /* Центрируем заголовки */
+            color: #fff; /* Цвет текста заголовков */
+        }
+
+        form {
+            max-width: 600px; /* Ограничиваем ширину формы */
+            margin: 20px auto; /* Центрируем форму */
+            background: white; /* Фон формы */
+            padding: 20px; /* Внутренний отступ */
+            border-radius: 10px; /* Закругление углов формы */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для формы */
+        }
+
+        label {
+            display: block; /* Блоковое отображение для меток */
+            margin-bottom: 5px; /* Отступ снизу */
+            font-weight: bold; /* Жирный текст для меток */
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%; /* Ширина полей ввода и текстовой области */
+            padding: 10px; /* Внутренний отступ */
+            margin-bottom: 15px; /* Отступ снизу */
+            border: 1px solid #ddd; /* Обводка полей ввода */
+            border-radius: 5px; /* Закругление углов полей ввода */
+            font-size: 16px; /* Размер шрифта */
+        }
+
+        button {
+            background-color: #007BFF; /* Цвет кнопки */
+            color: white; /* Цвет текста кнопки */
+            border: none; /* Убираем обводку */
+            padding: 10px 15px; /* Внутренний отступ кнопки */
+            border-radius: 5px; /* Закругление углов кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            font-size: 16px; /* Размер шрифта кнопки */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Цвет кнопки при наведении */
+        }
+
+        ul {
+            list-style-type: none; /* Убираем маркеры списка */
+            padding: 0; /* Убираем отступы у списка */
+        }
+
+        li {
+            background: white; /* Фон для каждой заметки */
+            margin: 10px 0; /* Отступы между заметками */
+            padding: 10px; /* Внутренний отступ для заметок */
+            border-radius: 5px; /* Закругление углов заметок */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для заметок */
+        }
+
+        a {
+            color: #007BFF; /* Цвет ссылки */
+            text-decoration: none; /* Убираем подчеркивание у ссылки */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении на ссылку */
+        }
+    </style>
+</head>
+<body>
+    <h1>Заметки</h1>
+
+    <h2>Создать новую заметку</h2>
+    <form action="/create" method="post">
+<!--        <input type="hidden" name="user_id" value="{{ user_id }}">-->
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="content">Содержание:</label>
+        <textarea id="content" name="content" required></textarea>
+
+        <button type="submit">Создать</button>
+    </form>
+
+    <h2>Мои заметки</h2>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <strong>{{ note.title }}</strong>: {{ note.content }}
+                <small>Дата создания: {{ note.created_at }}</small>
+                <form action="/delete/{{ note.id }}" method="post" style="display:inline;">
+                    <button type="submit">Удалить</button>
+                </form>
+                <a href="/update/{{ note.id }}">Редактировать</a>
+            </li>
+        {% endfor %}
+         <a class="login-link" href="/login">Выйти</a>
+    </ul>
+
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Заметки</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Заметки</h1>-->
+
+<!--    <h2>Создать новую заметку</h2>-->
+<!--    <form action="/create" method="post">-->
+<!--    <input type="hidden" name="user_id" value="{{ user_id }}">-->
+<!--    <label for="title">Заголовок:</label>-->
+<!--    <input type="text" id="title" name="title" required>-->
+<!--    <br>-->
+<!--    <label for="content">Содержание:</label>-->
+<!--    <textarea id="content" name="content" required></textarea>-->
+<!--    <br>-->
+<!--    <button type="submit">Создать</button>-->
+<!--</form>-->
+
+<!--    <h2>Мои заметки</h2>-->
+<!--    <ul>-->
+<!--        {% for note in notes %}-->
+<!--            <li>-->
+<!--                <strong>{{ note.title }}</strong>: {{ note.content }}-->
+<!--                <form action="/delete/{{ note.id }}" method="post" style="display:inline;">-->
+<!--                    <button type="submit">Удалить</button>-->
+<!--                </form>-->
+<!--                 <a href="/update/{{ note.id }}">Редактировать</a>-->
+<!--            </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</body>-->
+<!--</html>-->
+                <!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Заметки</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Заметки</h1>-->
+
+
+<!--    <h2>Создать новую заметку</h2>-->
+<!--    <form action="/create/" method="post">-->
+<!--        <label for="title">Заголовок:</label>-->
+<!--        <input type="text" id="title" name="title" required>-->
+<!--        <br>-->
+<!--        <label for="content">Содержание:</label>-->
+<!--        <textarea id="content" name="content" required></textarea>-->
+<!--        <br>-->
+<!--        <button type="submit">Создать</button>-->
+<!--    </form>-->
+
+<!--    <h2>Мои заметки</h2>-->
+<!--    <ul>-->
+<!--        {% for note in notes %}-->
+<!--            <li>-->
+<!--                <strong>{{ note.title }}</strong>: {{ note.content }}-->
+<!--                <form action="/all_notes/{{ note.id }}" method="post" style="display:inline;">-->
+<!--                    <button type="submit">Удалить</button>-->
+<!--                </form>-->
+<!--            </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87ceeb; /* Голубой фон */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center; /* Центрируем заголовок */
+            color: #fff; /* Цвет заголовка */
+        }
+
+        .note-container {
+            max-width: 600px; /* Ограничиваем ширину контейнера */
+            margin: 20px auto; /* Центрируем контейнер */
+            background: white; /* Фон контейнера */
+            padding: 20px; /* Внутренний отступ */
+            border-radius: 10px; /* Закругление углов контейнера */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для контейнера */
+        }
+
+        p {
+            font-size: 18px; /* Размер шрифта для текста заметки */
+            line-height: 1.5; /* Межстрочный интервал */
+        }
+
+        button {
+            background-color: #ff4d4d; /* Цвет кнопки удаления */
+            color: white; /* Цвет текста кнопки */
+            border: none; /* Убираем обводку */
+            padding: 10px 15px; /* Внутренний отступ кнопки */
+            border-radius: 5px; /* Закругление углов кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            font-size: 16px; /* Размер шрифта кнопки */
+            display: block; /* Блоковое отображение для кнопки */
+            margin: 20px auto; /* Центрируем кнопку */
+        }
+
+        button:hover {
+            background-color: #ff1a1a; /* Цвет кнопки при наведении */
+        }
+
+        a {
+            display: block; /* Блоковое отображение для ссылки */
+            text-align: center; /* Центрируем ссылку */
+            color: #007BFF; /* Цвет ссылки */
+            text-decoration: none; /* Убираем подчеркивание у ссылки */
+            margin-top: 20px; /* Отступ сверху */
+            font-size: 18px; /* Размер шрифта ссылки */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении на ссылку */
+        }
+    </style>
+</head>
+<body>
+    <div class="note-container">
+        <h1>{{ note.title }}</h1>
+        <p>{{ note.content }}</p>
+
+        <form action="/delete/{{ note.id }}" method="post">
+            <button type="submit">Удалить заметку</button>
+        </form>
+
+        <a href="/all_notes/">Вернуться к заметкам</a>
+    </div>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Детали</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>{{ note.title }}</h1>-->
+<!--    <p>{{ note.content }}</p>-->
+
+<!--    <form action="/delete/{{ note.id }}" method="post">-->
+<!--        <button type="submit">Удалить заметку</button>-->
+<!--    </form>-->
+
+<!--    <a href="/all_notes/">Вернуться к заметкам</a>-->
+<!--</body>-->
+<!--</html>-->

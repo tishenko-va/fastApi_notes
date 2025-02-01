@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать заметку</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #87ceeb; /* Голубой фон */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center; /* Центрируем заголовок */
+            color: #fff; /* Цвет заголовка */
+        }
+
+        .edit-container {
+            max-width: 500px; /* Ограничиваем ширину формы */
+            margin: 50px auto; /* Центрируем форму */
+            background: white; /* Фон формы */
+            padding: 20px; /* Внутренний отступ */
+            border-radius: 10px; /* Закругление углов формы */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для формы */
+        }
+
+        label {
+            font-size: 16px; /* Размер шрифта для меток */
+            display: block; /* Делаем метки блочными элементами */
+            margin-bottom: 5px; /* Отступ снизу для меток */
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%; /* Ширина полей ввода */
+            padding: 10px; /* Внутренний отступ полей ввода */
+            margin: 10px 0; /* Отступы сверху и снизу */
+            border: 1px solid #ccc; /* Обводка полей ввода */
+            border-radius: 5px; /* Закругление углов полей ввода */
+            font-size: 14px; /* Размер шрифта для полей ввода */
+        }
+
+        button {
+            background-color: #4CAF50; /* Цвет кнопки сохранения */
+            color: white; /* Цвет текста кнопки */
+            border: none; /* Убираем обводку */
+            padding: 10px; /* Внутренний отступ кнопки */
+            border-radius: 5px; /* Закругление углов кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            font-size: 16px; /* Размер шрифта кнопки */
+            width: 100%; /* Ширина кнопки */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Цвет кнопки при наведении */
+        }
+    </style>
+</head>
+<body>
+    <h1>Редактировать заметку</h1>
+    <div class="edit-container">
+        <form action="/update/{{ note.id }}" method="post">
+            <label for="title">Заголовок:</label>
+            <input type="text" id="title" name="title" value="{{ note.title }}" required>
+
+            <label for="content">Содержание:</label>
+            <textarea id="content" name="content" required>{{ note.content }}</textarea>
+
+            <button type="submit">Сохранить изменения</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Редактироватьcd </title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="/update/{{ note.id }}" method="post">-->
+<!--    <label for="title">Заголовок:</label>-->
+<!--    <input type="text" id="title" name="title" value="{{ note.title }}" required>-->
+<!--    <br>-->
+<!--    <label for="content">Содержание:</label>-->
+<!--    <textarea id="content" name="content" required>{{ note.content }}</textarea>-->
+<!--    <br>-->
+<!--    <button type="submit">Сохранить изменения</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
