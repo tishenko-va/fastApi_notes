@@ -21,6 +21,7 @@ templates = Jinja2Templates(directory="templates")
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
+
 @router.get("/register", response_class=HTMLResponse)
 async def register_form(request: Request):
     return templates.TemplateResponse("register.html", {"request": request})
